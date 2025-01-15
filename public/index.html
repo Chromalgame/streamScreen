@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Streaming App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+      background-color: #f4f4f9;
+    }
+    #video {
+      width: 80%;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+    #controls {
+      margin-top: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+  <h1>Application de Streaming Vidéo</h1>
+  <p>Partagez votre écran en direct avec les autres utilisateurs.</p>
+
+  <div id="controls">
+    <label for="sourceSelect">Choisissez une source : </label>
+    <select id="sourceSelect">
+      <option value="monitor">Écran entier</option>
+      <option value="window">Fenêtre spécifique</option>
+      <option value="browser">Onglet du navigateur</option>
+    </select>
+    <br><br>
+    <button id="startBtn">🎥 Démarrer le partage d'écran</button>
+    <button id="stopBtn" disabled>🛑 Arrêter le partage</button>
+  </div>
+  
+
+  <video id="video" autoplay playsinline controls></video>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="client.js"></script>
+</body>
+</html>
